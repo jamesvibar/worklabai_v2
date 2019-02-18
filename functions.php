@@ -20,6 +20,7 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
@@ -44,6 +45,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		parent::__construct();
 	}
@@ -54,13 +56,18 @@ class StarterSite extends Timber\Site {
 		wp_enqueue_script('main-js', get_template_directory_uri() . '/dist/all.js', [], time(), true);
 	}
 
-	/** This is where you can register custom post types. */
 	public function register_post_types() {
 
 	}
-	/** This is where you can register custom taxonomies. */
+
 	public function register_taxonomies() {
 
+	}
+
+	public function register_menus() {
+		register_nav_menus( array(
+			'primary' => __( 'Primary Menu', 'worklabai' ),
+		) );
 	}
 
 	/** This is where you add some context
@@ -68,8 +75,9 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+		
 		// $context['ENV'] = getenv(WP_ENV);
-		$context['menu'] = new Timber\Menu();
+		$context['menu'] = new Timber\Menu('primary');
 		$context['site'] = $this;
 		return $context;
 	}

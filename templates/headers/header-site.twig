@@ -1,0 +1,54 @@
+<header class="site-header">
+
+  <div class="container">
+    {# Logo #}
+
+    {# Upper Navbar #}
+    <div class="site-header__upper">
+      <div class="row">
+        <div class="col-12">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href=""><i class="fa fa-envelope"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="search-form-link" ><i class="fa fa-search" aria-hidden="true"></i> SEARCH</a>
+              {# <?php get_search_form(); ?> #}
+            </li>
+            <li class="nav-item">
+              <a class="" href="tel:09770576822">CALL US: 0977 057 6822</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {# Lower Navbar #}
+    <div class="site-header__lower">
+      <div class="row">
+      
+        <div class="col-12">
+          <nav class="site-nav">
+            <ul>
+            {% for item in menu.items %}
+              <li>
+                <a href="{{ item.link }}">{{ item.title }}</a>
+                {% if item.children %}
+                <ul>
+                  {% for child in item.children %}
+                    <li><a href="{{child.link}}">{{ child.title }}</a></li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</header>
