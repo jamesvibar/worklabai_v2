@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter",
+  "version": "1.0.0",
+  "description": "The \"_s\" for Timber: a dead-simple theme that you can build from. The primary purpose of this theme is to provide a file structure rather than a framework for markup or styles. Configure your Sass, scripts, and task runners however you would like!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run parcel:watch\" \"npm run browsersync\"",
+    "browsersync": "browser-sync start -c ./config/bs-config.js",
+    "parcel:watch": "parcel watch ./static/js/all.js",
+    "parcel:build": "parcel build ./static/js/all.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "concurrently": "^4.1.0",
+    "parcel-bundler": "^1.11.0",
+    "sass": "^1.17.0"
+  }
+}
