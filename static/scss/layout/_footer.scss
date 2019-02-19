@@ -1,0 +1,154 @@
+footer {
+  background: url(../images/footer-bg.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: _palette(white);
+  font-size: 14px;
+
+  .upper-footer {
+    padding: 70px 0 50px;
+    font-weight: 400;
+
+    .company-details-list {
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 1.5em;
+        position: relative;
+        margin-left: 2em;
+
+        p {
+          margin: 0;
+        }
+
+        i.fa {
+          color: _palette(yellow);
+          position: absolute;
+          left: -2em;
+          top: 2px;
+        }
+      }
+    }
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 3em;
+    }
+
+    a {
+      color: _palette(white);
+      text-decoration: none;
+    }
+
+    p {
+      line-height: 1.75em;
+    }
+
+    address {
+      color: _palette(white);
+    }
+
+    .social-medias {
+      margin-bottom: 20px;
+
+      a {
+        width: 30px;
+        line-height: 30px;
+        height: 30px;
+        text-align: center;
+        transition: opacity 200ms ease-in-out;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .social-medias-wrapper {
+      h4 {
+        color: _palette(white);
+
+        margin-bottom: 20px;
+      }
+
+      .directions {
+        font-size: 13px;
+        color: _palette(blue);
+      }
+
+      a {
+        font-size: 1.375rem;
+      }
+    }
+
+    .quick-links {
+      h4 {
+        color: _palette(white);
+        margin-bottom: 20px;
+      }
+
+      ul {
+        padding: 0;
+
+        li {
+          list-style: none;
+          margin-bottom: 1.5em;
+
+          a {
+            color: _palette(gray);
+            transition: all 200ms ease;
+
+            &:hover {
+              color: _palette(white);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .lower-footer {
+    font-weight: 400;
+    padding: 10px 0;
+    border-top: solid 2px _palette(white);
+    font-size: 13px;
+
+    .redkite-logo {
+      display: inline;
+    }
+
+    .redkite-tm {
+      float: right;
+
+      @include mq($until: tablet) {
+        display: none;
+      }
+
+      a {
+        color: _palette(white);
+        text-decoration: none;
+      }
+
+      span,
+      img {
+        vertical-align: middle;
+      }
+    }
+
+    .right-col {
+      p {
+        float: right;
+        a {
+          span {
+            margin-right: 5px;
+          }
+          img {
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: _fonts(primary);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

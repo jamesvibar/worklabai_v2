@@ -1,54 +1,47 @@
-<header class="site-header">
+<div class="container">
+  {# Logo #}
+  <div class="site-header__logo">
+    <a href="{{ site.url }}">
+      <img src="{{ Image(options.logo).src | default('Please add logo in Theme Settings') }}" alt="{{Image(options.logo).alt}}">
+    </a>
+  </div>
 
-  <div class="container">
-    {# Logo #}
-
-    {# Upper Navbar #}
-    <div class="site-header__upper">
-      <div class="row">
-        <div class="col-12">
-          <ul class="navbar-nav ml-auto">
+  {# Upper Navbar #}
+  <div class="site-header__upper">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar-nav">
+          <ul class="nav-links ml-auto">
             <li class="nav-item">
-              <a href=""><i class="fa fa-envelope"></i></a>
+              <a href="mailto:{{ options.email | default('default@gmail.com') }}"><i class="fa fa-envelope"></i></a>
             </li>
             <li class="nav-item">
-              <a class="search-form-link" ><i class="fa fa-search" aria-hidden="true"></i> SEARCH</a>
+              <a class="search-form-link" ><i class="fa fa-search mr-2" aria-hidden="true"></i>Search</a>
               {# <?php get_search_form(); ?> #}
             </li>
             <li class="nav-item">
-              <a class="" href="tel:09770576822">CALL US: 0977 057 6822</a>
+              <a class="contact-link" href="tel:{{ options.contact_number | default("123456789")}}">Call Us: {{ options.contact_number | default('Please configure your Theme Settings') }}</a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
-
-    {# Lower Navbar #}
-    <div class="site-header__lower">
-      <div class="row">
-      
-        <div class="col-12">
-          <nav class="site-nav">
-            <ul>
-            {% for item in menu.items %}
-              <li>
-                <a href="{{ item.link }}">{{ item.title }}</a>
-                {% if item.children %}
-                <ul>
-                  {% for child in item.children %}
-                    <li><a href="{{child.link}}">{{ child.title }}</a></li>
-                  {% endfor %}
-                </ul>
-                {% endif %}
-              </li>
-            {% endfor %}
-            </ul>
-          </nav>
-        </div>
-
-      </div>
-    </div>
-
   </div>
 
-</header>
+  {# Lower Navbar #}
+  <div class="site-header__lower">
+    <div class="row">
+    
+      <div class="col-12">
+        {% include "nav/primary-menu.twig" with { main_menu: main_menu.items } %}
+      </div>
+    </div>
+  </div>
+
+  
+  <button id="hamburger" class="hamburger hamburger--slider" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>  
+</div>

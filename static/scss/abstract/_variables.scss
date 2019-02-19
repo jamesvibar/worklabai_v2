@@ -1,0 +1,47 @@
+$mq-breakpoints: (
+  mobile: 320px,
+  tablet: 740px,
+  desktop: 980px,
+  wide: 1300px
+);
+
+$size: (
+  element-margin: 2em
+);
+
+$fonts: (
+  primary: (
+    "Montserrat",
+    "Helvetica",
+    "Verdana",
+    sans-serif
+  )
+  // headings: (
+  //   "Ananda",
+  //   "Gotham",
+  //   sans-serif
+  // )
+);
+
+$palette: (
+  black: #000,
+  white: #fff,
+  gray: #999999,
+  blue: #00aeef,
+  ltblue: #cad7e7,
+  yellow: #fabb47,
+  graylt: #2b2b2b,
+  graydark: #161616,
+  tomato: #f04636
+);
+
+$layers: (
+  logo: 11,
+  site_header: 10
+);
+
+// Hamburger Styles
+$hamburger-layer-color: #fff;
+$hamburger-layer-width: 30px;
+$hamburger-layer-height: 3px;
+$hamburger-layer-spacing: 6px;

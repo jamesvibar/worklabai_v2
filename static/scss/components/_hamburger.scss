@@ -1,0 +1,13 @@
+#hamburger {
+  position: fixed;
+  top: 3em;
+  right: 1em;
+  z-index: _layers(site_header);
+  background: _palette(black);
+  padding: 0.7em;
+  display: none;
+
+  @include mq($until: tablet) {
+    display: block;
+  }
+}

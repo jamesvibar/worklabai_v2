@@ -1,1 +1,103 @@
-Copyright {{"now"|date('Y')}}
+<div class="upper-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <img
+          src="{{ Image(options.logo).src }}"
+          alt="{{ Image(options.logo).alt }}"
+          class="mb-3"
+        />
+
+        <p class="company-desc">
+          {{ options.company_description | default('Please edit your theme settings') }}
+        </p>
+
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="company-details-list">
+              <li>
+                <i class="company-icon fa fa-map-marker-alt"></i>
+                <p>
+                  {{ options.address | default('Please edit your theme settings')}}
+                </p>
+              </li>
+              <li>
+                <i class="company-icon fa fa-phone"></i
+                >{{ options.contact_number | default('Please edit your theme settings')}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 offset-lg-1 col-md-4">
+        <div class="quick-links">
+          <h4>Quick Links</h4>
+          <ul class="list-unstyled">
+            {% for item in footer_menu.items %}
+            <li>
+              <a href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4">
+        <div class="social-medias-wrapper">
+          <h4>Find us on Social Media</h4>
+          <div class="social-medias">
+            {% for item in options.social_links %}
+            <a
+              style="background-color: {{ item.background_color | default('#000000') }}"
+              href="{{ item.url }}"
+              class="{{ item.icon }}"
+              target="_blank"
+            ></a>
+            {% endfor %}
+          </div>
+
+          <h4>Our Location</h4>
+
+          <a href="#">
+            <img
+              src="{{ theme.link }}/static/images/footer-map.jpg"
+              alt="hidden-cove-map"
+              class="img-fluid"
+          /></a>
+
+          <a class="directions" href="#"><i>Get Directions</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lower-footer">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-sm-8 col-lg-8 footer-links justify-content-center align-self-center left-col"
+      >
+        <p class="mb-md-0">
+          Copyright &copy; {{ now | date('Y') }} {{ bloginfo("name") }}. All
+          Rights Reserved.
+        </p>
+      </div>
+      <div
+        class="col-sm-4 col-lg-4 justify-content-center align-self-center right-col"
+      >
+        <div class="redkite-tm">
+          <a href="http://redkite.com.ph/" target="_blank" rel="nofollow">
+            <span class="mr-1">Powered by:</span>
+            <img
+              src="{{ theme.link }}/static/images/redkite-logo-footer.png"
+              class="redkite-logo img-fluid mx-auto"
+              alt="Redkite Logo"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

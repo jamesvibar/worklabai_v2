@@ -1,0 +1,52 @@
+.newsletter-wrapper {
+  background-color: _palette(ltblue);
+  color: _palette(white);
+  padding: 90px 0;
+  background-size: cover;
+  background-position: center center;
+
+  .newsletter-form {
+    form {
+      .btn-blue {
+        width: 155px;
+        padding: 12px 0;
+
+        &:hover {
+          background-color: _palette(blue);
+          color: _palette(white);
+          opacity: 0.9;
+        }
+      }
+
+      .input-group {
+        display: flex;
+
+        @include mq($until: mobile) {
+          display: block;
+        }
+      }
+
+      input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border: 1px solid #ffffff;
+        padding: 0 1em;
+        box-sizing: border-box;
+        width: 100%;
+        display: block;
+      }
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 2em;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: _palette(white);
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}

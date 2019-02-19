@@ -1,0 +1,23 @@
+body.show-back-to-top #back-to-top {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: all;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  background: #000;
+  padding: 1em;
+  color: #fff;
+  transform: translate3d(0, 30%, 0);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    background: _palette(tomato);
+  }
+}

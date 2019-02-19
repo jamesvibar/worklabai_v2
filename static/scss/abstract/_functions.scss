@@ -1,0 +1,27 @@
+@function val($map, $keys...) {
+  @if nth($keys, 1) == null {
+    $keys: remove-nth($keys, 1);
+  }
+
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+@function _fonts($keys...) {
+  @return val($fonts, $keys...);
+}
+
+@function _palette($keys...) {
+  @return val($palette, $keys...);
+}
+
+@function _size($keys...) {
+  @return val($size, $keys...);
+}
+
+@function _layers($keys...) {
+  @return val($layers, $keys...);
+}

@@ -5,39 +5,70 @@
 {% endblock %}
 
 <body class="{{body_class}}" data-template="base.twig" id="top">
-	<header class="site-header" role="banner">
-		
-	</header>
 
-	<main class="site-main">
-		{% block header %}
-			{% include "headers/header-site.twig" %}
-		{% endblock %}
+	<div id="site-mmenu">
+		<ul class="nav-links ml-auto">
+			<li><a href="#">test</a></li>
+    {# {% for item in main_menu.items %}
+        <li class="nav-link {{ item.classes | join(' ')}}">
+          <a href="{{ item.link }}">{{ item.title }}{% if item.children %}<i class="fas fa-angle-down ml-2"></i>{% endif %}</a>
+          {% if item.children %}
+          <ul class="nav-links-dropdown">
+            {% for child in item.children %}
+              <li class="{{ child.classes | join(' ')}}"><a href="{{child.link}}">{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+    {% endfor %} #}
+    </ul>
+	</div>
 
-		<div id="site-content">
+	<div id="site-wrapper">
+		<header class="site-header" role="banner">
+				{% include "headers/header-site.twig" %}
+		</header>
 
-			<div class="main-content">
-				{% block content %}
-					Sorry, no content.
-				{% endblock %}
+		<main class="site-main">
+			{% block hero %}
+			{% endblock %}
+
+			<div id="site-content">
+
+				<div class="main-content">
+					<div style="height: 1000px;"></div>
+					{% block content %}
+						Sorry, no content.
+					{% endblock %}
+				</div>
+
+				{# Sidebar #}
+
 			</div>
 
-			{# Sidebar #}
+			{% block misc %}
+				{% include "/blocks/block-newsletter.twig" %}
+			{% endblock %}
+		</main>
 
-		</div>
+		<footer class="site-footer">
+			{% block footer %}
+				{% include "footer.twig" %}
+			{% endblock %}
+		</footer>
+	</div>
 
-		{% block misc %}{% endblock %}
-	</main>
-
-	<footer class="site-footer">
-		{% block footer %}
-			<p>footer</p>
-		{% endblock %}
-	</footer>
-
+	<a id="back-to-top" href="#top">
+		<i class="fa fa-arrow-up"></i>
+	</a>
 	{{ block('footer_scripts') }}
 
 	{{ function('wp_footer') }}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.3.0/core/offcanvas/jquery.mmenu.offcanvas.js"></script>
+
+	<script>
+		$("#site-mmenu").mmenu();
+	</script>
 
 </body>
 </html>

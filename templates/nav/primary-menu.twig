@@ -1,0 +1,18 @@
+{% if main_menu %}
+  <nav class="site-nav">
+   <ul class="nav-links ml-auto">
+    {% for item in main_menu %}
+        <li class="nav-link {{ item.classes | join(' ')}}">
+          <a href="{{ item.link }}">{{ item.title }}{% if item.children %}<i class="fas fa-angle-down ml-2"></i>{% endif %}</a>
+          {% if item.children %}
+          <ul class="nav-links-dropdown">
+            {% for child in item.children %}
+              <li class="{{ child.classes | join(' ')}}"><a href="{{child.link}}">{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

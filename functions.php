@@ -66,7 +66,8 @@ class StarterSite extends Timber\Site {
 
 	public function register_menus() {
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', 'worklabai' ),
+			'main_menu' => __( 'Primary Menu', 'worklabai' ),
+			'footer_menu' => __( 'Footer Menu', 'worklabai' ),
 		) );
 	}
 
@@ -77,7 +78,9 @@ class StarterSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		
 		// $context['ENV'] = getenv(WP_ENV);
-		$context['menu'] = new Timber\Menu('primary');
+		$context['main_menu'] = new Timber\Menu('main_menu');
+		$context['footer_menu'] = new Timber\Menu('footer_menu');
+		$context['options'] = get_fields('option');
 		$context['site'] = $this;
 		return $context;
 	}
@@ -156,3 +159,8 @@ class StarterSite extends Timber\Site {
 }
 
 new StarterSite();
+
+// Advanced Custom Fields Theme Options
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page('Theme Settings');
+}

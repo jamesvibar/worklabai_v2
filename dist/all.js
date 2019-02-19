@@ -176,7 +176,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../node_modules/process/browser.js":[function(require,module,exports) {
+},{"./..\\fonts\\fa-regular-400.eot":[["fa-regular-400.b8d56c96.eot","../fonts/fa-regular-400.eot"],"../fonts/fa-regular-400.eot"],"./..\\fonts\\fa-regular-400.woff2":[["fa-regular-400.b6d2dc0f.woff2","../fonts/fa-regular-400.woff2"],"../fonts/fa-regular-400.woff2"],"./..\\fonts\\fa-regular-400.woff":[["fa-regular-400.b2bd1c1e.woff","../fonts/fa-regular-400.woff"],"../fonts/fa-regular-400.woff"],"./..\\fonts\\fa-regular-400.ttf":[["fa-regular-400.33a7f6ec.ttf","../fonts/fa-regular-400.ttf"],"../fonts/fa-regular-400.ttf"],"./..\\fonts\\fa-regular-400.svg":[["fa-regular-400.9ca85055.svg","../fonts/fa-regular-400.svg"],"../fonts/fa-regular-400.svg"],"./..\\fonts\\fa-solid-900.eot":[["fa-solid-900.2aa7f73c.eot","../fonts/fa-solid-900.eot"],"../fonts/fa-solid-900.eot"],"./..\\fonts\\fa-solid-900.woff2":[["fa-solid-900.50052ebc.woff2","../fonts/fa-solid-900.woff2"],"../fonts/fa-solid-900.woff2"],"./..\\fonts\\fa-solid-900.woff":[["fa-solid-900.9e5696f5.woff","../fonts/fa-solid-900.woff"],"../fonts/fa-solid-900.woff"],"./..\\fonts\\fa-solid-900.ttf":[["fa-solid-900.16dc6129.ttf","../fonts/fa-solid-900.ttf"],"../fonts/fa-solid-900.ttf"],"./..\\fonts\\fa-solid-900.svg":[["fa-solid-900.ab242033.svg","../fonts/fa-solid-900.svg"],"../fonts/fa-solid-900.svg"],"./..\\fonts\\fa-brands-400.eot":[["fa-brands-400.5a0cf9bb.eot","../fonts/fa-brands-400.eot"],"../fonts/fa-brands-400.eot"],"./..\\fonts\\fa-brands-400.woff2":[["fa-brands-400.0443b8c8.woff2","../fonts/fa-brands-400.woff2"],"../fonts/fa-brands-400.woff2"],"./..\\fonts\\fa-brands-400.woff":[["fa-brands-400.f5430110.woff","../fonts/fa-brands-400.woff"],"../fonts/fa-brands-400.woff"],"./..\\fonts\\fa-brands-400.ttf":[["fa-brands-400.ab00d996.ttf","../fonts/fa-brands-400.ttf"],"../fonts/fa-brands-400.ttf"],"./..\\fonts\\fa-brands-400.svg":[["fa-brands-400.c3b99f20.svg","../fonts/fa-brands-400.svg"],"../fonts/fa-brands-400.svg"],"./..\\images\\footer-bg.jpg":[["footer-bg.804dffed.jpg","../images/footer-bg.jpg"],"../images/footer-bg.jpg"],"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -10755,20 +10755,84 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{"process":"../../node_modules/process/browser.js"}],"all.js":[function(require,module,exports) {
+},{"process":"../../node_modules/process/browser.js"}],"../../node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js":[function(require,module,exports) {
+var define;
+var global = arguments[3];
+/*! smooth-scroll v15.0.0 | (c) 2018 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
+window.Element&&!Element.prototype.closest&&(Element.prototype.closest=function(e){var t,n=(this.document||this.ownerDocument).querySelectorAll(e),o=this;do{for(t=n.length;--t>=0&&n.item(t)!==o;);}while(t<0&&(o=o.parentElement));return o}),(function(){function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};var n=document.createEvent("CustomEvent");return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}if("function"==typeof window.CustomEvent)return!1;e.prototype=window.Event.prototype,window.CustomEvent=e})(),(function(){for(var e=0,t=["ms","moz","webkit","o"],n=0;n<t.length&&!window.requestAnimationFrame;++n)window.requestAnimationFrame=window[t[n]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[t[n]+"CancelAnimationFrame"]||window[t[n]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(t,n){var o=(new Date).getTime(),i=Math.max(0,16-(o-e)),r=window.setTimeout((function(){t(o+i)}),i);return e=o+i,r}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(e){clearTimeout(e)})})(),(function(e,t){"function"==typeof define&&define.amd?define([],(function(){return t(e)})):"object"==typeof exports?module.exports=t(e):e.SmoothScroll=t(e)})("undefined"!=typeof global?global:"undefined"!=typeof window?window:this,(function(e){"use strict";var t={ignore:"[data-scroll-ignore]",header:null,topOnEmptyHash:!0,speed:500,speedAsDuration:!1,durationMax:null,durationMin:null,clip:!0,offset:0,easing:"easeInOutCubic",customEasing:null,updateURL:!0,popstate:!0,emitEvents:!0},n=function(){return"querySelector"in document&&"addEventListener"in e&&"requestAnimationFrame"in e&&"closest"in e.Element.prototype},o=function(){var e={};return Array.prototype.forEach.call(arguments,(function(t){for(var n in t){if(!t.hasOwnProperty(n))return;e[n]=t[n]}})),e},i=function(t){return!!("matchMedia"in e&&e.matchMedia("(prefers-reduced-motion)").matches)},r=function(t){return parseInt(e.getComputedStyle(t).height,10)},a=function(e){var t;try{t=decodeURIComponent(e)}catch(n){t=e}return t},u=function(e){"#"===e.charAt(0)&&(e=e.substr(1));for(var t,n=String(e),o=n.length,i=-1,r="",a=n.charCodeAt(0);++i<o;){if(0===(t=n.charCodeAt(i)))throw new InvalidCharacterError("Invalid character: the input contains U+0000.");t>=1&&t<=31||127==t||0===i&&t>=48&&t<=57||1===i&&t>=48&&t<=57&&45===a?r+="\\"+t.toString(16)+" ":r+=t>=128||45===t||95===t||t>=48&&t<=57||t>=65&&t<=90||t>=97&&t<=122?n.charAt(i):"\\"+n.charAt(i)}var u;try{u=decodeURIComponent("#"+r)}catch(e){u="#"+r}return u},c=function(e,t){var n;return"easeInQuad"===e.easing&&(n=t*t),"easeOutQuad"===e.easing&&(n=t*(2-t)),"easeInOutQuad"===e.easing&&(n=t<.5?2*t*t:(4-2*t)*t-1),"easeInCubic"===e.easing&&(n=t*t*t),"easeOutCubic"===e.easing&&(n=--t*t*t+1),"easeInOutCubic"===e.easing&&(n=t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1),"easeInQuart"===e.easing&&(n=t*t*t*t),"easeOutQuart"===e.easing&&(n=1- --t*t*t*t),"easeInOutQuart"===e.easing&&(n=t<.5?8*t*t*t*t:1-8*--t*t*t*t),"easeInQuint"===e.easing&&(n=t*t*t*t*t),"easeOutQuint"===e.easing&&(n=1+--t*t*t*t*t),"easeInOutQuint"===e.easing&&(n=t<.5?16*t*t*t*t*t:1+16*--t*t*t*t*t),e.customEasing&&(n=e.customEasing(t)),n||t},s=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},l=function(t,n,o,i){var r=0;if(t.offsetParent)do{r+=t.offsetTop,t=t.offsetParent}while(t);return r=Math.max(r-n-o,0),i&&(r=Math.min(r,s()-e.innerHeight)),r},m=function(e){return e?r(e)+e.offsetTop:0},d=function(e,t){var n=t.speedAsDuration?t.speed:Math.abs(e/1e3*t.speed);return t.durationMax&&n>t.durationMax?t.durationMax:t.durationMin&&n<t.durationMin?t.durationMin:n},f=function(e,t,n){t||history.pushState&&n.updateURL&&history.pushState({smoothScroll:JSON.stringify(n),anchor:e.id},document.title,e===document.documentElement?"#top":"#"+e.id)},h=function(t,n,o){0===t&&document.body.focus(),o||(t.focus(),document.activeElement!==t&&(t.setAttribute("tabindex","-1"),t.focus(),t.style.outline="none"),e.scrollTo(0,n))},p=function(t,n,o,i){if(n.emitEvents&&"function"==typeof e.CustomEvent){var r=new CustomEvent(t,{bubbles:!0,detail:{anchor:o,toggle:i}});document.dispatchEvent(r)}};return function(r,g){var v,w,y,E,b,S,A,C={};C.cancelScroll=function(e){cancelAnimationFrame(A),A=null,e||p("scrollCancel",v)},C.animateScroll=function(n,i,r){var a=o(v||t,r||{}),u="[object Number]"===Object.prototype.toString.call(n),g=u||!n.tagName?null:n;if(u||g){var w=e.pageYOffset;a.header&&!E&&(E=document.querySelector(a.header)),b||(b=m(E));var y,S,O,I=u?n:l(g,b,parseInt("function"==typeof a.offset?a.offset(n,i):a.offset,10),a.clip),q=I-w,M=s(),F=0,L=d(q,a),x=function(t,o){var r=e.pageYOffset;if(t==o||r==o||(w<o&&e.innerHeight+r)>=M)return C.cancelScroll(!0),h(n,o,u),p("scrollStop",a,n,i),y=null,A=null,!0},H=function(t){y||(y=t),F+=t-y,S=F/parseInt(L,10),S=S>1?1:S,O=w+q*c(a,S),e.scrollTo(0,Math.floor(O)),x(O,I)||(A=e.requestAnimationFrame(H),y=t)};0===e.pageYOffset&&e.scrollTo(0,0),f(n,u,a),p("scrollStart",a,n,i),C.cancelScroll(!0),e.requestAnimationFrame(H)}};var O=function(t){if(!i()&&0===t.button&&!t.metaKey&&!t.ctrlKey&&"closest"in t.target&&(y=t.target.closest(r))&&"a"===y.tagName.toLowerCase()&&!t.target.closest(v.ignore)&&y.hostname===e.location.hostname&&y.pathname===e.location.pathname&&/#/.test(y.href)){var n=u(a(y.hash)),o=v.topOnEmptyHash&&"#"===n?document.documentElement:document.querySelector(n);o=o||"#top"!==n?o:document.documentElement,o&&(t.preventDefault(),C.animateScroll(o,y))}},I=function(e){if(null!==history.state&&history.state.smoothScroll&&history.state.smoothScroll===JSON.stringify(v)&&history.state.anchor){var t=document.querySelector(u(a(history.state.anchor)));t&&C.animateScroll(t,null,{updateURL:!1})}},q=function(e){S||(S=setTimeout((function(){S=null,b=m(E)}),66))};return C.destroy=function(){v&&(document.removeEventListener("click",O,!1),e.removeEventListener("resize",q,!1),e.removeEventListener("popstate",I,!1),C.cancelScroll(),v=null,w=null,y=null,E=null,b=null,S=null,A=null)},C.init=function(i){if(!n())throw"Smooth Scroll: This browser does not support the required JavaScript methods and browser APIs.";C.destroy(),v=o(t,i||{}),E=v.header?document.querySelector(v.header):null,b=m(E),document.addEventListener("click",O,!1),E&&e.addEventListener("resize",q,!1),v.updateURL&&v.popstate&&e.addEventListener("popstate",I,!1)},C.init(g),C}}));
+},{}],"all.js":[function(require,module,exports) {
 "use strict";
 
 require("../scss/main.scss");
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
+var _smoothScroll = _interopRequireDefault(require("smooth-scroll"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //Import main stylesheet to compile it.
 (0, _jquery.default)(document).ready(function () {
-  console.log("document is ready! - using jquery!");
+  var scroll = new _smoothScroll.default('a[href*="#"]');
+  adminbarMargin();
+  scrollToTop();
+  mmenuInit(); // stickyHeader();
 });
-},{"../scss/main.scss":"../scss/main.scss","jquery":"../../node_modules/jquery/dist/jquery.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+/**
+ * Add margin-top to header if admin-bar is enabled;
+ */
+
+function adminbarMargin() {
+  if ((0, _jquery.default)(document.body).hasClass("admin-bar") && (0, _jquery.default)(document.body).hasClass("logged-in")) {
+    (0, _jquery.default)(".site-header").css({
+      marginTop: "32px"
+    });
+  }
+}
+/**
+ * Show back to top button if scroll > 0
+ */
+
+
+function scrollToTop() {
+  (0, _jquery.default)(window).on("scroll", function () {
+    if ((0, _jquery.default)(window).scrollTop() > 600) {
+      (0, _jquery.default)(document.body).addClass("show-back-to-top");
+    } else {
+      (0, _jquery.default)(document.body).removeClass("show-back-to-top");
+    }
+  });
+}
+/**
+ * Site mmenu
+ */
+
+
+function mmenuInit() {
+  (0, _jquery.default)("#site-mmenu").mmenu();
+  var API = (0, _jquery.default)("#site-mmenu").data("mmenu");
+  (0, _jquery.default)("#hamburger").on("click", function (_ref) {
+    var currentTarget = _ref.currentTarget;
+    (0, _jquery.default)(currentTarget).toggleClass("is-active");
+    API.open();
+  });
+}
+/**
+ * Sticky Nav
+ */
+
+
+function stickyHeader() {
+  var header = (0, _jquery.default)(".site-header");
+  (0, _jquery.default)(window).on("scroll", function () {
+    if ((0, _jquery.default)(window).scrollTop() > 600) {
+      header.addClass("sticky");
+    } else {
+      header.removeClass("sticky");
+    }
+  });
+}
+},{"../scss/main.scss":"../scss/main.scss","jquery":"../../node_modules/jquery/dist/jquery.js","smooth-scroll":"../../node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -10795,7 +10859,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63613" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55475" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
