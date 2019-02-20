@@ -45,6 +45,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_shortcodes' ) );
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		parent::__construct();
@@ -54,6 +55,23 @@ class StarterSite extends Timber\Site {
 	public function register_scripts() {
 		wp_enqueue_style('main-css', get_template_directory_uri() . '/dist/all.css', [], time());
 		wp_enqueue_script('main-js', get_template_directory_uri() . '/dist/all.js', [], time(), true);
+	}
+
+	public function register_shortcodes() {
+		add_shortcode( 'primary_button', 'primary_button_shortcode' );
+
+		function primary_button_shortcode( $atts ) {
+			if (isset( $atts['link'] )) {
+				$link = esc_url_raw( $atts['link']);
+			} else {
+				$link = "#";
+			}
+			if (isset( $atts['text'] )) {
+				$text = esc_textarea($atts['text']);
+			}
+
+			return Timber::compile( 'shortcodes/primary_button.twig', array( 'link' => $link, 'text' => $text ) );
+		}
 	}
 
 	public function register_post_types() {

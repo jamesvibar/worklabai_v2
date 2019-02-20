@@ -6,29 +6,11 @@
 
 <body class="{{body_class}}" data-template="base.twig" id="top">
 
-	<div id="site-mmenu">
-		<ul class="nav-links ml-auto">
-			<li><a href="#">test</a></li>
-    {# {% for item in main_menu.items %}
-        <li class="nav-link {{ item.classes | join(' ')}}">
-          <a href="{{ item.link }}">{{ item.title }}{% if item.children %}<i class="fas fa-angle-down ml-2"></i>{% endif %}</a>
-          {% if item.children %}
-          <ul class="nav-links-dropdown">
-            {% for child in item.children %}
-              <li class="{{ child.classes | join(' ')}}"><a href="{{child.link}}">{{ child.title }}</a></li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </li>
-    {% endfor %} #}
-    </ul>
-	</div>
-
-	<div id="site-wrapper">
-		<header class="site-header" role="banner">
-				{% include "headers/header-site.twig" %}
-		</header>
-
+	<header class="site-header" role="banner">
+			{% include "headers/header-site.twig" %}
+	</header>
+	
+	<div id="panel">
 		<main class="site-main">
 			{% block hero %}
 			{% endblock %}
@@ -36,7 +18,6 @@
 			<div id="site-content">
 
 				<div class="main-content">
-					<div style="height: 1000px;"></div>
 					{% block content %}
 						Sorry, no content.
 					{% endblock %}
@@ -58,17 +39,19 @@
 		</footer>
 	</div>
 
+	<div id="menu">
+		<div class="header">
+			<h3>Menu</h3>
+		</div>
+		{% include "nav/primary-menu.twig" with { main_menu: main_menu.items } %}
+	</div>
+	
 	<a id="back-to-top" href="#top">
 		<i class="fa fa-arrow-up"></i>
 	</a>
+
 	{{ block('footer_scripts') }}
-
 	{{ function('wp_footer') }}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.3.0/core/offcanvas/jquery.mmenu.offcanvas.js"></script>
-
-	<script>
-		$("#site-mmenu").mmenu();
-	</script>
 
 </body>
 </html>

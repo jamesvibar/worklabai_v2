@@ -2,13 +2,43 @@ import "../scss/main.scss"; //Import main stylesheet to compile it.
 
 import $ from "jquery";
 import SmoothScroll from "smooth-scroll";
+import Slideout from "slideout";
 
 $(document).ready(() => {
+  const header = document.querySelector(".site-header");
+
   const scroll = new SmoothScroll('a[href*="#"]');
-  adminbarMargin();
+  const slideout = new Slideout({
+    panel: document.getElementById("panel"),
+    menu: document.getElementById("menu"),
+    padding: 256,
+    side: "right"
+  });
+  slideout.on("translate", function(translated) {
+    header.style.transform = `translateX(${translated}px)`;
+  });
+  slideout.on("beforeopen", function() {
+    header.style.transition = "transform 300ms ease";
+    header.style.transform = "translateX(-256px)";
+  });
+
+  slideout.on("beforeclose", function() {
+    header.style.transition = "transform 300ms ease";
+    header.style.transform = "translateX(0px)";
+  });
+
+  slideout.on("close", function() {
+    $("#hamburger").removeClass("is-active");
+    header.style.transition = "";
+  });
+  slideout.on("open", function() {
+    $("#hamburger").addClass("is-active");
+    header.style.transition = "";
+  });
   scrollToTop();
-  mmenuInit();
-  // stickyHeader();
+
+  adminbarMargin();
+  toggleSlideOutMenu(slideout);
 });
 
 /**
@@ -37,28 +67,13 @@ function scrollToTop() {
 }
 
 /**
- * Site mmenu
+ * Initialize slideoutjs and add click events to the menu toggler.
  */
-function mmenuInit() {
-  $("#site-mmenu").mmenu();
-
-  const API = $("#site-mmenu").data("mmenu");
-  $("#hamburger").on("click", ({ currentTarget }) => {
-    $(currentTarget).toggleClass("is-active");
-    API.open();
-  });
-}
-
-/**
- * Sticky Nav
- */
-function stickyHeader() {
-  const header = $(".site-header");
-  $(window).on("scroll", () => {
-    if ($(window).scrollTop() > 600) {
-      header.addClass("sticky");
-    } else {
-      header.removeClass("sticky");
+function toggleSlideOutMenu(slideout) {
+  $("#hamburger").click(function() {
+    if (!$("#hamburger").hasClass("is-active")) {
+      $("#hamburger").addClass("is-active");
     }
+    slideout.toggle();
   });
 }

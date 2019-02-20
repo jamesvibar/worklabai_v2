@@ -2,14 +2,13 @@
   background-color: _palette(black);
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
+  width: 100%;
   height: 96px;
   z-index: _layers(site_header);
   transition: all 0.7s;
 
   @include mq($until: tablet) {
-    background: transparent;
+    height: 60px;
 
     .site-header__upper,
     .site-header__lower {
@@ -22,6 +21,12 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: _layers(logo);
+
+    @include mq($until: tablet) {
+      img {
+        width: 50px;
+      }
+    }
   }
 
   .site-header__upper {

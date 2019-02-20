@@ -24,4 +24,7 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
+// Hero (Header)
+// $context['background_image'] = $post->background_image;
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

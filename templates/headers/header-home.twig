@@ -1,0 +1,23 @@
+<header id="hero" class="hero-container" style="background-image: url('{{ Image(background_image).src }}')">
+  <div class="hero-table">
+    <div class="hero-table-cell container">  
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="hero-content">
+              {{ content | default('Empty text') }}
+              {% filter shortcodes %}
+              [primary_button link="#content" text="Explore"]
+              {% endfilter %}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto down-arrow text-center">
+            <a href="#content" class="cove-anchor-link"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,9 +1,9 @@
 {% extends "base.twig" %}
 
+{% block hero %}
+{% include "/headers/header-home.twig" with { background_image: post.meta('background_image'), content: post.meta('content') } %}
+{% endblock %}
+
 {% block content %}
-
-  {{ page.type }}
-  <hr>
-  Front page twig
-
+  {{ post.meta('background_image') }}
 {% endblock %}

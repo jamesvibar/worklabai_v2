@@ -15,7 +15,11 @@
 
 $context = Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
-$context['foo'] = 'bar';
 $templates = array( 'index.twig' );
+
+// Get page content
+$post = new Timber\Post();
+// Hero (Header)
+// $context['background_image'] = $post->background_image;
 
 Timber::render( $templates, $context );
