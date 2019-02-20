@@ -11346,8 +11346,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     (0, _jquery.default)("#hamburger").addClass("is-active");
     header.style.transition = "";
   });
-  scrollToTop();
-  adminbarMargin();
+  scrollToTop(); // adminbarMargin();
+
   toggleSlideOutMenu(slideout);
 });
 /**

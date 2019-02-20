@@ -7,15 +7,11 @@
             <div class="hero-content">
               {{ content | default('Empty text') }}
               {% filter shortcodes %}
-              [primary_button link="#content" text="Explore"]
+              [primary_button link="#content" text="Explore" class="hero-button"]
               {% endfilter %}
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-auto down-arrow text-center">
-            <a href="#content" class="cove-anchor-link"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-          </div>
+          <a href="#site-content" class="cove-anchor-link"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>

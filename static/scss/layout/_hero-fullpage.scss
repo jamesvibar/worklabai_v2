@@ -17,6 +17,15 @@
       vertical-align: middle;
       width: 100%;
 
+      .cove-anchor-link {
+        color: #fff;
+        position: absolute;
+        bottom: 2em;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1em;
+      }
+
       .hero-content {
         color: _palette(white);
 
@@ -33,6 +42,10 @@
         p {
           font-size: 1.4em;
           line-height: 1.75em;
+        }
+
+        .hero-button {
+          width: 170px;
         }
       }
     }

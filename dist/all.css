@@ -10660,6 +10660,14 @@ footer .lower-footer .right-col p a img {
   vertical-align: middle;
   width: 100%;
 }
+#hero .hero-table .hero-table-cell .cove-anchor-link {
+  color: #fff;
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1em;
+}
 #hero .hero-table .hero-table-cell .hero-content {
   color: #fff;
 }
@@ -10674,6 +10682,9 @@ footer .lower-footer .right-col p a img {
 #hero .hero-table .hero-table-cell .hero-content p {
   font-size: 1.4em;
   line-height: 1.75em;
+}
+#hero .hero-table .hero-table-cell .hero-content .hero-button {
+  width: 170px;
 }
 
 body.show-back-to-top #back-to-top {
@@ -10697,6 +10708,11 @@ body.show-back-to-top #back-to-top {
 }
 #back-to-top:hover {
   background: #f04636;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-blue {

@@ -37,7 +37,7 @@ $(document).ready(() => {
   });
   scrollToTop();
 
-  adminbarMargin();
+  // adminbarMargin();
   toggleSlideOutMenu(slideout);
 });
 

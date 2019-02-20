@@ -69,8 +69,11 @@ class StarterSite extends Timber\Site {
 			if (isset( $atts['text'] )) {
 				$text = esc_textarea($atts['text']);
 			}
+			if (isset( $atts['class'] )) {
+				$class = esc_textarea($atts['class']);
+			}
 
-			return Timber::compile( 'shortcodes/primary_button.twig', array( 'link' => $link, 'text' => $text ) );
+			return Timber::compile( 'shortcodes/primary_button.twig', array( 'link' => $link, 'text' => $text, 'class' => $class ) );
 		}
 	}
 
