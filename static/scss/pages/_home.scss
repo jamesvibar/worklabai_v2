@@ -1,0 +1,138 @@
+.home {
+  .home-services {
+    .services-section {
+      max-width: 1800px;
+      margin: 0 auto;
+
+      .service-container {
+        padding: 0 5px;
+      }
+
+      .services-section-item {
+        position: relative;
+        overflow: hidden;
+
+        .service-content__permalink {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 2;
+          display: block;
+          text-indent: -9999px;
+          white-space: nowrap;
+          font-size: 0;
+          opacity: 0;
+        }
+
+        &:hover {
+          .services-section-item__bg {
+            transform: scale(1.1);
+          }
+
+          .services-section-item__content {
+            transform: translate3d(0, 0, 0);
+
+            p {
+              opacity: 1;
+            }
+          }
+        }
+
+        .services-section-item__bg {
+          height: 450px;
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          transition: all 2000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .services-section-item__content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          color: _palette(white);
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgba(0, 0, 0, 0.2) 100%
+          );
+          padding: 0.7em 1.2em 1.2em;
+
+          transform: translate3D(0, 130px, 0);
+          transition: transform 350ms cubic-bezier(0.165, 0.84, 0.44, 1);
+          height: 220px;
+          z-index: 3;
+
+          @include mq($until: desktop) {
+            height: auto;
+            transform: translate3d(0, 0, 0);
+            background: linear-gradient(
+              to top,
+              rgba(0, 0, 0, 0.8),
+              rgba(0, 0, 0, 0.2) 100%
+            );
+          }
+
+          h3 {
+            padding: 0.8em 0;
+            margin: 0;
+            color: _palette(white);
+            font-weight: 450;
+            font-size: 1.3em;
+          }
+
+          p {
+            line-height: 1.75em;
+            font-size: 0.95em;
+            margin-top: 0;
+
+            @include mq($from: desktop) {
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      .services-section__bg {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        position: relative;
+
+        &.blue::before {
+          background: rgba(_palette(blue), 0.8);
+        }
+        &.yellow::before {
+          background: rgba(_palette(yellow), 0.8);
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        h2 {
+          margin: 0;
+          color: _palette(white);
+          text-align: center;
+          line-height: 150px;
+          white-space: nowrap;
+          text-transform: uppercase;
+          font-weight: 550;
+          font-size: 1.6em;
+          position: relative;
+          z-index: _layers(servicesheader);
+        }
+      }
+    }
+  }
+}

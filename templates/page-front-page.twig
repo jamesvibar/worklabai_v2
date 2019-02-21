@@ -1,9 +1,85 @@
 {% extends "base.twig" %}
 
+{% set section_1 = post.meta('section_1') %}
+{% set section_2 = post.meta('section_2') %}
+
 {% block hero %}
 {% include "/headers/header-home.twig" with { background_image: post.meta('background_image'), content: post.meta('content') } %}
 {% endblock %}
 
 {% block content %}
-  {{ post.meta('background_image') }}
+
+  {% if section_1.services_column %}
+  <section id="home-services" class="home-services mt-md-5">
+    <div class="container-fluid px-0">    
+      <div class="services-section" id="anchor-cove">
+        <div class="row px-0">
+          {# Column #}
+          {% for column in section_1.services_column %}
+          <div class="col-lg service-container">
+            <div class="row">
+              <div class="col-lg">
+                <div class="services-section__bg{% if column.class %} {{ column.class }}{% endif %}" style="background-image: url({{ Image(column.background_image).src | default('http://lorempixel.com/600/600')}});">
+                  <h2>{{ column.column_title }}</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="row no-gutters">
+              {# Service #}
+              {% for service in column.services %}
+              <div class="col-md">
+                <div class="services-section-item">
+                  <a href="{{ service.link }}" class="service-content__permalink"></a>
+                  <div class="services-section-item__bg" style="background-image: url('{{ Image(service.thumbnail).src }}')">
+                  </div>		
+                  <div class="services-section-item__content">
+                    <h3>{{ service.headline }}</h3>
+                    <p>{{ service.textline }}</p>
+                    {% filter shortcodes %}
+                      [button id="btn-blue" link={{ service.link }} class="btn-blue-sm" text="Learn More"]
+                    {% endfilter %}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}	
+            
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if section_2 %}
+  <section id="home-about" class="home-about section">
+    <div class="container">
+      <div class="row">
+        {% if section_2.image %}
+        <div class="col-lg-6">
+          <div class="img-holder-john">
+            <img src="{{ Image(section_2.image).src }}" alt="{{ Image(section_2.image).alt }}" class="img-fluid mx-auto d-block">
+          </div>
+        </div>
+        {% endif %}
+
+
+        <div class="col-lg justify-content-center align-self-center">
+          <div class="about-desc">
+            <h2>{{ section_2.headline }}</h2>
+            {{ section_2.textline | wpautop }}
+
+            {% filter shortcodes %}
+            [button id="btn-blue" link="{{ function('get_page_link', '91') }}" text="Learn More" class="btn-blue-sm"]
+            {% endfilter %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
 {% endblock %}

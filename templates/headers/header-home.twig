@@ -7,7 +7,7 @@
             <div class="hero-content">
               {{ content | default('Empty text') }}
               {% filter shortcodes %}
-              [primary_button link="#content" text="Explore" class="hero-button"]
+              [button id="btn-hero" link="#content" text="Explore" class="hero-button"]
               {% endfilter %}
             </div>
           </div>

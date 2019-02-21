@@ -1,0 +1,20 @@
+#contact-us {
+  .contact-us__content {
+    address {
+      font-style: normal;
+    }
+
+    & h2 {
+      margin-top: 0;
+    }
+
+    & h5 {
+      margin-top: 1.4em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

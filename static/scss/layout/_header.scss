@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 96px;
+  height: 98px;
   z-index: _layers(site_header);
   transition: all 0.7s;
 
@@ -21,6 +21,15 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: _layers(logo);
+    img {
+      transition: all ease-in-out 150ms;
+    }
+
+    &:hover {
+      img {
+        transform: scale(0.88);
+      }
+    }
 
     @include mq($until: tablet) {
       img {

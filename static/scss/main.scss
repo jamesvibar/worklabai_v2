@@ -22,15 +22,20 @@
 @import "./layout/header";
 @import "./layout/footer";
 @import "./layout/newsletter";
+@import "./layout/section";
 @import "./layout/hero-fullpage";
+@import "./layout/hero-page";
 
 // Components
 @import "./components/back-to-top";
 @import "./components/buttons";
 @import "./components/slideoutmenu";
 @import "./components/hamburger";
+@import "./components/contact-form";
 
 // Pages
-// @import "./pages/home";
+@import "./pages/home";
+@import "./pages/contact-us";
+@import "./pages/about-us";
 
 @import "./vendors/slideout";

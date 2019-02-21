@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% set section_1 = post.meta('section_1') %}
+{% set section_2 = post.meta('section_2') %}
+
+{% block hero %}
+{% include "/headers/header-page.twig" with { background_image: post.meta('background_image'), post: post } %}
+{% endblock %}
+
+{% block content %}
+
+  <section id="contact-us" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="contact-us__content">
+            {{ post.meta('content') }}
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-us__content-form mt-5">
+            {{ post.contact_form | shortcodes }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{% set section_1 = post.meta('section_1') %}
+{% set section_2 = post.meta('section_2') %}
+
+{% block hero %}
+{% include "/headers/header-page.twig" with { background_image: post.meta('background_image'), post: post } %}
+{% endblock %}
+
+{% block content %}
+
+  <section id="about-us" class="section">
+    <div class="container">
+
+      {% for item in post.meta('group') %}
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="our-story-wrapper">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="our-story-banner section-banner">
+                  <img src="{% if item.header_image %}{{ Image(item.header_image).src }}{% else %}http://lorempixel.com/900/600{% endif %}" alt="{{ Image(item.header_image).alt }}" class="img-fluid mx-auto d-block">
+                </div>
+              </div>
+              <div class="col-lg-10 mx-lg-auto">
+                <div class="our-story-content about-content">
+                  <h2>{{ item.headline }}</h2>
+                  <h5 class="about-subheadline">{{ item.sub_headline}}</h5>
+
+                  {{ item.content | wpautop }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </section>
+
+{% endblock %}

@@ -5,6 +5,7 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  // background-attachment: fixed;
 
   .hero-table {
     display: table;
@@ -46,6 +47,11 @@
 
         .hero-button {
           width: 170px;
+        }
+
+        @include mq($until: tablet) {
+          text-align: center;
+          font-size: 12px;
         }
       }
     }
