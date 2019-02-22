@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+{% include "/headers/header-page.twig" with { background_image: post.meta('background_image'), post: post } %}
+{% endblock %}
+
+{% block content %}
+
+  <section id="education-center-wrapper" class="section">
+    <div class="container">
+      <div class="row">
+        {% if posts %}
+        {% for post in posts %}
+        <div class="col-md-4 col-lg-4">
+          
+          {% include "teases/tease-education-center.twig" with { post: post } %}
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12 text-center">
+          <h2>No posts found.</h2>
+        </div>
+
+        {% endif %}
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {# Pagination #}
+          {% include "partials/pagination.twig" with { pagination: posts.pagination } %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

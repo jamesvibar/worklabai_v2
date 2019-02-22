@@ -62,14 +62,13 @@
 }
 
 .btn-white {
-  background: _palette(white);
+  background: transparent;
   text-decoration: none;
-  color: #ffffff;
   border: 1px solid _palette(black);
   padding: 17px 10px;
   border-radius: 0px;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   transition: all 0.2s ease-out;
 
@@ -81,7 +80,7 @@
 }
 
 .btn-white-sm {
-  width: 155px;
+  width: 240px;
   padding: 12px 0;
   text-transform: uppercase;
 }

@@ -6,9 +6,11 @@
 
 <body class="{{body_class}}" data-template="base.twig" id="top">
 
+	{% block siteheader %}
 	<header class="site-header" role="banner">
 			{% include "headers/header-site.twig" %}
 	</header>
+	{% endblock %}
 	
 	<div id="panel">
 		<main class="site-main">

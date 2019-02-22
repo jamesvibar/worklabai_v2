@@ -47,41 +47,11 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_shortcodes' ) );
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		parent::__construct();
 	}
 
-	/** Theme related scripts and styles */
-	public function register_scripts() {
-		wp_enqueue_style('main-css', get_template_directory_uri() . '/dist/all.css', [], time());
-		wp_enqueue_script('main-js', get_template_directory_uri() . '/dist/all.js', [], time(), true);
-	}
-
 	public function register_shortcodes() {
-		add_shortcode( 'button', 'button_shortcode' );
-
-		function button_shortcode( $atts ) {
-			if (isset($atts['id'])) {
-				$id = esc_attr($atts['id']);
-			} else {
-				$id = "btn-blue";
-			}
-			if (isset( $atts['link'] )) {
-				$link = esc_url_raw( $atts['link']);
-			} else {
-				$link = "#";
-			}
-			if (isset( $atts['text'] )) {
-				$text = esc_textarea($atts['text']);
-			}
-			if (isset( $atts['class'] )) {
-				$class = esc_textarea($atts['class']);
-			} else {
-				$class = '';
-			}
-
-			return Timber::compile( 'shortcodes/buttons.twig', array( 'id' => $id, 'link' => $link, 'text' => $text, 'class' => $class ) );
-		}
+		require "inc/shortcodes.php";
 	}
 
 	public function register_post_types() {
@@ -117,12 +87,6 @@ class StarterSite extends Timber\Site {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
 		add_theme_support( 'title-tag' );
 
 		/*
@@ -150,17 +114,17 @@ class StarterSite extends Timber\Site {
 		 *
 		 * See: https://codex.wordpress.org/Post_Formats
 		 */
-		add_theme_support(
-			'post-formats', array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-				'gallery',
-				'audio',
-			)
-		);
+		// add_theme_support(
+		// 	'post-formats', array(
+		// 		'aside',
+		// 		'image',
+		// 		'video',
+		// 		'quote',
+		// 		'link',
+		// 		'gallery',
+		// 		'audio',
+		// 	)
+		// );
 
 		add_theme_support( 'menus' );
 	}
@@ -185,10 +149,39 @@ class StarterSite extends Timber\Site {
 	}
 
 }
-
 new StarterSite();
+
+/**
+ * Theme specific functions for WorkLabAI starts from here...
+ */
+
+// Register theme scripts and files
+add_action( 'wp_enqueue_scripts', 'wpworklabai_register_scripts' );
+function wpworklabai_register_scripts() {
+	wp_enqueue_style('main-css', get_template_directory_uri() . '/dist/all.css', [], time());
+	wp_enqueue_script('main-js', get_template_directory_uri() . '/dist/all.js', [], time(), true);
+}
 
 // Advanced Custom Fields Theme Options
 if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page('Theme Settings');
 }
+
+/**
+ * Pre get posts for custom WP Queries
+ */
+
+ // Education Center
+ add_action('pre_get_posts', 'worklabai_category_education_personal_business');
+ function worklabai_category_education_personal_business( $query ) {
+		if
+		( $query->is_main_query() && 
+			!is_admin() && 
+			( is_category('education-center') || 
+				is_category('personal') || 
+				is_category('business') 
+			) ) 
+		{
+			$query->set("posts_per_page", 3);
+		}
+ }

@@ -1,0 +1,93 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+{% include "/headers/header-page.twig" with { background_image: post.meta('background_image'), post: post } %}
+{% endblock %}
+
+{% block content %}
+  <section id="education-center-wrapper" class="section">
+    <div class="container">
+      <div class="row">
+        {% if posts %}
+        {% for post in posts %}
+        <div class="col-md-4 col-lg-4">
+          
+          {% include "teases/tease-education-center.twig" with { post: post } %}
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12 text-center">
+          <h2>No posts found.</h2>
+        </div>
+        {% endif %}
+
+
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {# Pagination #}
+          {% include "partials/pagination.twig" with { pagination: posts.pagination } %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education-center-children" class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          {% filter shortcodes %}
+            {% for child in post.children %}
+            [button id="btn-white" text="{{ child.title }}" class="btn-white-sm" link="{{ child.link }}"]
+            {% endfor %}
+          {% endfilter %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="google-slides-container section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 justify-content-center align-self-center">
+				<h2>GOOGLE SLIDES</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit placerat faucibus. Cras ut nibh dolor. Fusce quis nibh at ex hendrerit eleifend. Cras eu lorem dictum, facilisis justo at, luctus tellus. Nunc vitae sapien efficitur, varius dolor nec, bibendum sapien. In euismod molestie neque. Integer in tortor diam. Praesent laoreet nisi quam, et egestas tellus accumsan at. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="col-lg-6">
+				<!-- 16:9 aspect ratio -->
+				<div class="embed-responsive embed-responsive-4by3">
+					<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTqpm0eL0yQzZ2GxOcVRlPs67Gw8e0nVOyF7Vc4jx6_gMteIStbtof2YM0rgyVgiLq6Xm0eT76aW0l_/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+				</div>					
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="youtube-video-container section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="text-center">VIDEO HIGHLIGHTS</h2>
+			</div>
+
+			<div class="col-lg-8 mx-auto">
+				<!-- 16:9 aspect ratio -->
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YrddaP6ml1M?rel=0" allowfullscreen></iframe>
+				</div>
+
+				<div class="video-description">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit placerat faucibus. Cras ut nibh dolor. Fusce quis nibh at ex hendrerit eleifend. Cras eu lorem dictum, facilisis justo at, luctus tellus. Nunc vitae sapien efficitur, varius dolor nec, bibendum sapien. In euismod molestie neque. Integer in tortor diam. Praesent laoreet nisi quam, et egestas tellus accumsan at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit placerat faucibus. Cras ut nibh dolor. Fusce quis nibh at ex hendrerit eleifend. Cras eu lorem dictum, facilisis justo at, luctus tellus. Nunc vitae sapien efficitur, varius dolor nec, bibendum sapien. In euismod molestie neque. Integer in tortor diam. Praesent laoreet nisi quam, et egestas tellus accumsan at. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit placerat faucibus. Cras ut nibh dolor. Fusce quis nibh at ex hendrerit eleifend. Cras eu lorem dictum, facilisis justo at, luctus tellus. Nunc vitae sapien efficitur, varius dolor nec, bibendum sapien. In euismod molestie neque. Integer in tortor diam.</p>
+
+					<p>Praesent laoreet nisi quam, et egestas tellus accumsan at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit placerat faucibus. Cras ut nibh dolor. Fusce quis nibh at ex hendrerit eleifend.</p>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</section>
+{% endblock %}

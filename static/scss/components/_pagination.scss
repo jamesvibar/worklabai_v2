@@ -1,0 +1,33 @@
+#pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  .pagination-links {
+    margin: 0 10px;
+  }
+
+  .pagination-item {
+    font-size: 0.9em;
+    font-weight: 500;
+    background: _palette(white);
+    border: 1px solid _palette(black);
+    color: _palette(black);
+    padding: 1em;
+    display: inline-block;
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      background: _palette(blue);
+      border-color: _palette(blue);
+      color: _palette(white);
+    }
+
+    &.current {
+      background: _palette(blue);
+      border-color: _palette(blue);
+      color: _palette(white);
+    }
+  }
+}

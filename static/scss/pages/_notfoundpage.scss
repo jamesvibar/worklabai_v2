@@ -1,0 +1,42 @@
+#notfoundpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .notfoundpage__content {
+    margin: 0 auto;
+    position: relative;
+    max-width: 800px;
+
+    .bg-image {
+      display: block;
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .content {
+      position: absolute;
+      top: 60px;
+      left: 40px;
+
+      @include mq($until: tablet) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      h1 {
+        font-size: 80px;
+        margin: 0;
+      }
+    }
+  }
+}

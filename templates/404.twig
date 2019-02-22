@@ -1,5 +1,27 @@
 {% extends "base.twig" %}
 
+{% block hero %}{% endblock %}
+
 {% block content %}
-	Sorry, we couldn't find what you're looking for.
+	
+	<section id="notfoundpage">
+
+		<div class="div notfoundpage__content">
+			<div class="bg-image">
+				<img class="img" src="{{ theme.link }}/static/images/404-bg.png" alt="404 Not Found">
+				<div class="content">
+					<h1>404</h1>
+					<p>Yikes, looks like you're lost...</p>
+					<a href="{{ site.url }}" class="btn btn-blue btn-blue-sm">Go Home</a>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
 {% endblock %}
+
+{% block misc %}{% endblock %}
+
+{% block footer %}{% endblock %}

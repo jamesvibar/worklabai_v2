@@ -1,0 +1,13 @@
+<div class="card">
+  <a href="{{ post.link }}">
+    {% if post.thumbnail %}
+    <img src="{{ post.thumbnail.src }}" alt="{{ post.title }}">
+    {% endif %}
+  </a>
+  <div class="card-body">
+    <p class="post-date">{{ post.date | date('F n, Y')}}</p>
+    <a href="{{ post.link }}"><h5 class="post-title">{{ post.title }}</h5></a>
+    <p class="post-excerpt">{{ post.preview.length(20).read_more('') }}</p>
+    <a href="{{ post.link }}" class="post-link">Continue Reading <span>&raquo;</span></a>
+  </div>
+</div>

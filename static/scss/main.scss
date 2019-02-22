@@ -6,12 +6,12 @@
 
 // Base
 @import "./base/fonts";
-@import "~bootstrap/scss/bootstrap-grid";
 @import "./base/normalize";
 @import "./base/general";
 @import "./base/typography";
 
 // Vendors
+@import "./vendors/bootstrap-custom";
 @import "./vendors/fontawesome/fontawesome";
 @import "./vendors/fontawesome/regular";
 @import "./vendors/fontawesome/solid";
@@ -32,10 +32,13 @@
 @import "./components/slideoutmenu";
 @import "./components/hamburger";
 @import "./components/contact-form";
+@import "./components/pagination";
 
 // Pages
 @import "./pages/home";
 @import "./pages/contact-us";
 @import "./pages/about-us";
+@import "./pages/notfoundpage";
+@import "./pages/category-education-center";
 
 @import "./vendors/slideout";
