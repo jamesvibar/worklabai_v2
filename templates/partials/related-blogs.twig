@@ -1,0 +1,14 @@
+<div class="related-sidebar-wrapper">
+	<h2>RELATED BLOGS</h2>
+  {% for post in related_posts %}
+  <div class="card">
+    <div class="img-container">
+        <img src="{{ post.thumbnail.src | resize(500) }}" alt="" class="card-img-top img-fluid mx-auto d-block">
+    </div>	
+    <div class="card-block">
+      <p class="post-date">{{ post.date }}</p>
+      <h5 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h5>
+    </div>
+  </div>
+  {% endfor %}
+</div>

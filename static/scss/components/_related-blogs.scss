@@ -1,0 +1,45 @@
+.related-sidebar-wrapper {
+  padding-top: 30px;
+
+  h2 {
+    font-size: 19px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .card {
+    border: none;
+
+    .img-container {
+      position: relative;
+      overflow: hidden;
+      height: 150px;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .card-block {
+      padding: 15px 0 20px;
+
+      .post-date {
+        color: _palette(blue);
+        margin-bottom: 0px;
+      }
+
+      .post-title {
+        margin-top: 6px;
+      }
+
+      .post-title a {
+        font-size: 0.7em;
+        color: _palette(black);
+        font-weight: 550;
+      }
+    }
+  }
+}

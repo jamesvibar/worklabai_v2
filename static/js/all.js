@@ -8,6 +8,7 @@ $(document).ready(() => {
   const header = document.querySelector(".site-header");
 
   const scroll = new SmoothScroll('a[href*="#"]');
+
   const slideout = new Slideout({
     panel: document.getElementById("panel"),
     menu: document.getElementById("menu"),

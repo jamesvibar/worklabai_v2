@@ -1,0 +1,59 @@
+#footer-education-drip {
+  .section-title-wrapper {
+    text-align: center;
+  }
+
+  .card {
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 30px;
+
+    img {
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 25px 20px;
+
+      & .post-date {
+        font-size: 0.8em;
+        color: _palette(blue);
+        letter-spacing: 1px;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      & .post-title {
+        font-weight: 500;
+        font-size: 1.15em;
+        margin-bottom: 0px;
+        margin-top: 12px;
+      }
+
+      & .post-excerpt {
+        font-weight: 400;
+      }
+
+      & .post-link {
+        text-transform: uppercase;
+        font-size: 0.9em;
+        transition: color ease-in-out 200ms;
+        display: inline-block;
+
+        span {
+          display: inline-block;
+          transition: transform ease-in 200ms;
+          font-size: 1.2em;
+        }
+
+        &:hover {
+          color: _palette(blue);
+
+          span {
+            transform: translateX(6px);
+          }
+        }
+      }
+    }
+  }
+}

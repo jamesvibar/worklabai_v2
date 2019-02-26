@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+  {% include "headers/header-single.twig" %}
+{% endblock %}
+
+{% block content %}
+	<section id="single-post" class="section">
+    <div class="container">
+      <div class="row">
+        <article id="post-<?php the_ID(); ?>">
+          <div class="blog-header" style="background-image: url('{{ post.thumbnail }}');">
+            <div class="container px-0">
+              <div class="row">
+                <div class="col-sm-8 col-md-6 col-lg-5">
+                  <div class="post-header">
+                    <div class="post-title-wrapper">
+                      <h1 class="mb-2">{{ post.title }}</h1>
+                      <p>Date Posted: {{ post.date }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-content-wrapper">
+            <div class="container px-0">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="blog-content">
+                    {{ post.content }}
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  {% include "partials/related-blogs.twig" with { related_posts: related_posts } %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  
+  </section>
+{% endblock %}
+
+{% block misc %}{% endblock %}

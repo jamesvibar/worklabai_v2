@@ -74,12 +74,18 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		
+	
 		// $context['ENV'] = getenv(WP_ENV);
 		$context['main_menu'] = new Timber\Menu('main_menu');
 		$context['footer_menu'] = new Timber\Menu('footer_menu');
 		$context['options'] = get_fields('option');
 		$context['site'] = $this;
+		// Footer Education Drip
+		$args = array(
+			'post_type' => 'post',
+			'posts_per_page' => 3
+		);
+		$context['education_posts'] = new Timber\PostQuery($args);
 		return $context;
 	}
 

@@ -4,6 +4,14 @@ header#hero-page {
   background-repeat: no-repeat;
   background-size: cover;
 
+  &.hero-single-container {
+    background-position: center;
+
+    .hero-page__content {
+      height: 300px;
+    }
+  }
+
   .hero-page__content {
     height: 70vh;
     display: flex;

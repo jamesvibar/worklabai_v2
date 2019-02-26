@@ -1,0 +1,23 @@
+<section id="footer-education-drip" class="edu-center-wrapper section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="section-title-wrapper">
+					<h2 style="text-transform: uppercase;">Education Center</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto maiores<br> ratione beatae ea in, illo ad labore debitis officia mollitia</p>
+				</div>	
+			</div>
+
+			{% for post in education_posts %}
+			<div class="col-md-4 col-lg-4 mt-3">
+				{% include "teases/tease-education-center.twig" with { post: post } %}
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+		<div class="row">
+			<div class="col-lg-12 mt-4" style="text-align: center;">
+				<a href="{{ function('get_category_link', '7') }}" role="button" class="btn btn-blue btn-blue-sm">VIEW ALL</a>
+			</div>
+		</div>
+</section>

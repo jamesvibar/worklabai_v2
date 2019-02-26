@@ -11041,6 +11041,12 @@ header#hero-page {
   background-repeat: no-repeat;
   background-size: cover;
 }
+header#hero-page.hero-single-container {
+  background-position: center;
+}
+header#hero-page.hero-single-container .hero-page__content {
+  height: 300px;
+}
 header#hero-page .hero-page__content {
   height: 70vh;
   display: flex;
@@ -11049,6 +11055,54 @@ header#hero-page .hero-page__content .hero-page__title {
   color: #fff;
   font-weight: 300;
   margin-bottom: 60px;
+}
+
+#footer-education-drip .section-title-wrapper {
+  text-align: center;
+}
+#footer-education-drip .card {
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 30px;
+}
+#footer-education-drip .card img {
+  width: 100%;
+}
+#footer-education-drip .card .card-body {
+  padding: 25px 20px;
+}
+#footer-education-drip .card .card-body .post-date {
+  font-size: 0.8em;
+  color: #00aeef;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 500;
+}
+#footer-education-drip .card .card-body .post-title {
+  font-weight: 500;
+  font-size: 1.15em;
+  margin-bottom: 0px;
+  margin-top: 12px;
+}
+#footer-education-drip .card .card-body .post-excerpt {
+  font-weight: 400;
+}
+#footer-education-drip .card .card-body .post-link {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  transition: color ease-in-out 200ms;
+  display: inline-block;
+}
+#footer-education-drip .card .card-body .post-link span {
+  display: inline-block;
+  transition: transform ease-in 200ms;
+  font-size: 1.2em;
+}
+#footer-education-drip .card .card-body .post-link:hover {
+  color: #00aeef;
+}
+#footer-education-drip .card .card-body .post-link:hover span {
+  transform: translateX(6px);
 }
 
 body.show-back-to-top #back-to-top {
@@ -11296,6 +11350,44 @@ body.show-back-to-top #back-to-top {
   background: #00aeef;
   border-color: #00aeef;
   color: #fff;
+}
+
+.related-sidebar-wrapper {
+  padding-top: 30px;
+}
+.related-sidebar-wrapper h2 {
+  font-size: 19px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.related-sidebar-wrapper .card {
+  border: none;
+}
+.related-sidebar-wrapper .card .img-container {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+}
+.related-sidebar-wrapper .card .img-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.related-sidebar-wrapper .card .card-block {
+  padding: 15px 0 20px;
+}
+.related-sidebar-wrapper .card .card-block .post-date {
+  color: #00aeef;
+  margin-bottom: 0px;
+}
+.related-sidebar-wrapper .card .card-block .post-title {
+  margin-top: 6px;
+}
+.related-sidebar-wrapper .card .card-block .post-title a {
+  font-size: 0.7em;
+  color: #000;
+  font-weight: 550;
 }
 
 .home .home-services .services-section {
@@ -11556,6 +11648,42 @@ body.show-back-to-top #back-to-top {
 
 #education-center-children {
   background: #f0f0f0;
+}
+
+#single-post article {
+  padding: 40px 0;
+  display: block;
+  width: 100%;
+}
+#single-post article .blog-header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 100px 0;
+  position: relative;
+}
+#single-post article .blog-header .post-header .post-title-wrapper {
+  padding: 25px 20px;
+  background-color: #fff;
+}
+#single-post article .blog-header .post-header .post-title-wrapper h1 {
+  color: #00aeef;
+  line-height: 1.8rem;
+  font-weight: 550;
+}
+#single-post article .blog-header .post-header .post-title-wrapper p {
+  color: #000;
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+#single-post article .blog-content-wrapper .blog-content {
+  padding: 30px;
+  position: relative;
+  top: -60px;
+  background-color: #fff;
+}
+#single-post article .blog-content-wrapper .blog-content p {
+  font-size: 15px;
 }
 
 body {

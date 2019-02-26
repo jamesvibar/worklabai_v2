@@ -1,13 +1,27 @@
 {# see `archive.twig` for an alternative strategy of extending templates #}
 {% extends "base.twig" %}
 
+{% block hero %}
+{% include "/headers/header-search.twig" with { background_image: background_image, post: title } %}
+{% endblock %}
+
 {% block content %}
   {# see `base.twig:27` for where this block's content will be inserted #}
-  <div class="content-wrapper">
-    {% for post in posts %}
-      {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-    {% endfor %}
+  <section class="section">
+    <div class="container">
+      <div class="row flex-column justify-content-center">
+      <div class="col-md-8 m-auto">
+      <h1 style="color: #555; font-weight: 500; border-bottom: 1px solid #ccc; padding-bottom: 10px;">{{ found_posts }} results for "{{ query }}"</h1>
+      </div>
+      {% for post in posts %}
+        {% include ['teases/tease-search.twig', 'tease.twig'] %}
+      {% endfor %}
 
-    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-  </div>
+      {% include 'partials/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block misc %}
 {% endblock %}

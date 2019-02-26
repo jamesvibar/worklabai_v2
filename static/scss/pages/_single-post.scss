@@ -1,0 +1,43 @@
+#single-post {
+  article {
+    padding: 40px 0;
+    display: block;
+    width: 100%;
+
+    .blog-header {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 100px 0;
+      position: relative;
+
+      .post-header .post-title-wrapper {
+        padding: 25px 20px;
+        background-color: #fff;
+
+        h1 {
+          color: #00aeef;
+          line-height: 1.8rem;
+          font-weight: 550;
+        }
+
+        p {
+          color: #000;
+          margin-bottom: 0px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .blog-content-wrapper .blog-content {
+      padding: 30px;
+      position: relative;
+      top: -60px;
+      background-color: #fff;
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
