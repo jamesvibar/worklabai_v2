@@ -9,11 +9,14 @@ $(document).ready(() => {
   const header = document.querySelector(".site-header");
   const scroll = new SmoothScroll('a[href*="#"]');
 
-  const flkty = new Flickity(document.querySelector("#hero-slider"), {
-    prevNextButtons: false,
-    autoPlay: 3000,
-    cellSelector: ".hero-slide-item"
-  });
+  const heroSlider = document.querySelector("#hero-slider");
+  if (heroSlider) {
+    const flkty = new Flickity(heroSlider, {
+      prevNextButtons: false,
+      autoPlay: 3000,
+      cellSelector: ".hero-slide-item"
+    });
+  }
 
   const slideout = new Slideout({
     panel: document.getElementById("panel"),

@@ -38,3 +38,38 @@ h6 {
 .text-center {
   text-align: center;
 }
+
+.blockquote-content {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.blockquote-footer {
+  font-size: 12px;
+  color: #555;
+}
+
+//Digital Detox Retreats
+.page-id-210 {
+  img {
+    margin-bottom: 2em;
+  }
+
+  .main-content {
+    ul {
+      margin: 2em 0;
+    }
+
+    ul li {
+      margin-bottom: 0.6em;
+    }
+  }
+}
+
+hr {
+  margin: 3em 0;
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+}

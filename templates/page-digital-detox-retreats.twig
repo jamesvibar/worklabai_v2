@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-	<section class="section" id="page">
+	<section class="section page-{{ post.post_type}}" id="page">
 		<div class="container">
       {% if post.rows %}
       {% for row in post.meta('rows') %}

@@ -15194,11 +15194,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _jquery.default)(document).ready(function () {
   var header = document.querySelector(".site-header");
   var scroll = new _smoothScroll.default('a[href*="#"]');
-  var flkty = new _flickity.default(document.querySelector("#hero-slider"), {
-    prevNextButtons: false,
-    autoPlay: 3000,
-    cellSelector: ".hero-slide-item"
-  });
+  var heroSlider = document.querySelector("#hero-slider");
+
+  if (heroSlider) {
+    var flkty = new _flickity.default(heroSlider, {
+      prevNextButtons: false,
+      autoPlay: 3000,
+      cellSelector: ".hero-slide-item"
+    });
+  }
+
   var slideout = new _slideout.default({
     panel: document.getElementById("panel"),
     menu: document.getElementById("menu"),
@@ -15294,7 +15299,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54079" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59735" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

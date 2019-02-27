@@ -1,10 +1,10 @@
 {% if post.is_slider and post.slides %}
-<header id="hero-slider" class="hero-slider hero-container hero-container--page" style="background-image: url('{{ Image(background_image).src }}')">
+<header id="hero-slider" class="hero-slider hero-container hero-container--page">
   {% for slide in post.meta('slides') %}
-  <div class="section hero-slide-item" style="background-image: url('{{ Image(slide.background_image).src }}')"></div>
+  <div class="section hero-slide-item" style="{% if slide.background_position %}background-position: {{ slide.background_position }}; {% endif %}background-image: url('{{ Image(slide.background_image).src }}')"></div>
   {% endfor %}
 	<div class="section hero-slide-title">
-		<h2>Digital Detox Retreats</h2>
+		<h2>{{ post.title }}</h2>
   </div>
 </header>
 {% endif %}
