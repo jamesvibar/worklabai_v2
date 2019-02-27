@@ -1,0 +1,5 @@
+{% extends "blocks/block.twig" %}
+
+{% block content %}
+  <img class="{% if blck.is_fluid %}fluid{% endif %}" src="{{ Image(blck.attached_image).src }}" alt="{{ Image(blck.attached_image).alt }}">
+{% endblock %}

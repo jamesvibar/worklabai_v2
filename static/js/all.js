@@ -3,16 +3,22 @@ import "../scss/main.scss"; //Import main stylesheet to compile it.
 import $ from "jquery";
 import SmoothScroll from "smooth-scroll";
 import Slideout from "slideout";
+import Flickity from "flickity";
 
 $(document).ready(() => {
   const header = document.querySelector(".site-header");
-
   const scroll = new SmoothScroll('a[href*="#"]');
+
+  const flkty = new Flickity(document.querySelector("#hero-slider"), {
+    prevNextButtons: false,
+    autoPlay: 3000,
+    cellSelector: ".hero-slide-item"
+  });
 
   const slideout = new Slideout({
     panel: document.getElementById("panel"),
     menu: document.getElementById("menu"),
-    padding: 256,
+    padding: 320,
     side: "right"
   });
   slideout.on("translate", function(translated) {
@@ -20,7 +26,7 @@ $(document).ready(() => {
   });
   slideout.on("beforeopen", function() {
     header.style.transition = "transform 300ms ease";
-    header.style.transform = "translateX(-256px)";
+    header.style.transform = "translateX(-320px)";
   });
 
   slideout.on("beforeclose", function() {

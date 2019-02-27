@@ -25,7 +25,9 @@
 @import "./layout/section";
 @import "./layout/hero-fullpage";
 @import "./layout/hero-page";
+@import "./layout/hero-slider";
 @import "./layout/block-education-drip";
+// @import "./layout/email-to-a-friend";
 
 // Components
 @import "./components/back-to-top";
@@ -45,3 +47,4 @@
 @import "./pages/single-post";
 
 @import "./vendors/slideout";
+@import "./vendors/flickity";

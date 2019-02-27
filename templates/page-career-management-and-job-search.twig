@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+	{% include "/headers/header-page.twig" with { background_image: post.meta('background_image'), post: post } %}
+{% endblock %}
+
+{% block content %}
+	<section class="section" id="page">
+		<div class="container">
+      {% if post.rows %}
+      {% for row in post.meta('rows') %}
+      <div style="padding: 25px 0" class="row {{ row.class }}">
+        {% for col in row.bootstrap_columns %}
+        <div class="{{ col.class}}">
+          {% include "partials/flexcontent-logic.twig" with { elem: col.content } %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      {% endif %}
+		</div>
+	</section>
+{% endblock %}
+
+{% block misc %}
+  {% include "partials/email-to-a-friend.twig" %}
+  {{ parent() }}
+{% endblock %}

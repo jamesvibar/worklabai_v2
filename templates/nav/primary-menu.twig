@@ -3,7 +3,11 @@
    <ul class="nav-links ml-auto">
     {% for item in main_menu %}
         <li class="nav-link {{ item.classes | join(' ')}}">
+          {% if item.link %}
           <a href="{{ item.link }}">{{ item.title }}{% if item.children %}<i class="fas fa-angle-down ml-2"></i>{% endif %}</a>
+          {% else %}
+          <a>{{ item.title }}{% if item.children %}<i class="fas fa-angle-down ml-2"></i>{% endif %}</a>
+          {% endif %}
           {% if item.children %}
           <ul class="nav-links-dropdown">
             {% for child in item.children %}

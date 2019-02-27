@@ -515,6 +515,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+img.fluid {
+  width: 100%;
+}
 
 html,
 body {
@@ -556,6 +559,10 @@ h5 {
 
 h6 {
   font-size: 1.1em;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*!
@@ -10725,6 +10732,7 @@ readers do not read off random characters that represent icons */
   font-size: 13px;
   font-weight: 500;
   transition: all ease-in-out 200ms;
+  cursor: pointer;
 }
 .site-header .site-header__lower .site-nav .nav-links .nav-link > a:hover {
   background: #f04636;
@@ -11055,6 +11063,38 @@ header#hero-page .hero-page__content .hero-page__title {
   color: #fff;
   font-weight: 300;
   margin-bottom: 60px;
+}
+
+.hero-slide-item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  height: 474px;
+  width: 100%;
+}
+
+#hero-slider .flickity-page-dots {
+  position: absolute;
+  bottom: 1em;
+}
+
+#hero-slider .flickity-page-dots .dot {
+  padding: 0.5em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+#hero-slider .hero-slide-title {
+  position: absolute;
+  bottom: 60px;
+  left: 120px;
+  color: #fff;
+}
+
+#hero-slider .hero-slide-title h2 {
+  font-weight: 300;
 }
 
 #footer-education-drip .section-title-wrapper {
@@ -11695,7 +11735,7 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 256px;
+  width: 320px;
   min-height: 100vh;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -11728,4 +11768,149 @@ body {
 
 .slideout-open .slideout-menu {
   display: block;
+}
+
+/*! Flickity v2.2.0
+https://flickity.metafizzy.co
+---------------------------------------------- */
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus {
+  outline: none;
+}
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- flickity-button ---- */
+.flickity-button {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  border: none;
+  color: #333;
+}
+
+.flickity-button:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.flickity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #19F;
+}
+
+.flickity-button:active {
+  opacity: 0.6;
+}
+
+.flickity-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+  /* prevent disabled button from capturing pointer up event. #716 */
+  pointer-events: none;
+}
+
+.flickity-button-icon {
+  fill: currentColor;
+}
+
+/* ---- previous/next buttons ---- */
+.flickity-prev-next-button {
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* vertically center */
+  transform: translateY(-50%);
+}
+
+.flickity-prev-next-button.previous {
+  left: 10px;
+}
+
+.flickity-prev-next-button.next {
+  right: 10px;
+}
+
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+/* ---- page dots ---- */
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots {
+  direction: rtl;
+}
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
 }

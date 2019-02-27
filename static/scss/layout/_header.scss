@@ -79,6 +79,7 @@
             font-size: 13px;
             font-weight: 500;
             transition: all ease-in-out 200ms;
+            cursor: pointer;
 
             &:hover {
               background: _palette(tomato);

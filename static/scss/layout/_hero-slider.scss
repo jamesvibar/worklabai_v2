@@ -1,0 +1,31 @@
+.hero-slide-item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  height: 474px;
+  width: 100%;
+}
+
+#hero-slider .flickity-page-dots {
+  position: absolute;
+  bottom: 1em;
+}
+
+#hero-slider .flickity-page-dots .dot {
+  padding: 0.5em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+#hero-slider .hero-slide-title {
+  position: absolute;
+  bottom: 60px;
+  left: 120px;
+  color: #fff;
+}
+
+#hero-slider .hero-slide-title h2 {
+  font-weight: 300;
+}

@@ -1,0 +1,11 @@
+  {% for blck in elem %}
+
+    {% set block_class = blck.acf_fc_layout %}
+
+    {% if blck.acf_fc_layout == 'block_text' %}
+      {% include "blocks/block-text.twig" %}
+    {% elseif blck.acf_fc_layout == 'block_image' %}
+      {% include "blocks/block-image.twig" %}
+    {% endif %}
+
+  {% endfor %}
