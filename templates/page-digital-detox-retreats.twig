@@ -8,16 +8,24 @@
 	<section class="section page-{{ post.post_type}}" id="page">
 		<div class="container">
       {% if post.rows %}
-      {% for row in post.meta('rows') %}
-      <div style="padding: 25px 0" class="row {{ row.class }}">
-        {% for col in row.bootstrap_columns %}
-        <div class="{{ col.class}}">
-          {% include "partials/flexcontent-logic.twig" with { elem: col.content } %}
+        {% for row in post.meta('rows') %}
+        <div style="padding: 25px 0" class="row {{ row.class }}">
+          {% for col in row.bootstrap_columns %}
+          <div class="{{ col.class}}">
+            {% include "partials/flexcontent-logic.twig" with { elem: col.content } %}
+          </div>
+          {% endfor %}
         </div>
         {% endfor %}
-      </div>
-      {% endfor %}
       {% endif %}
+
+      {# Form #}
+      <div class="row">
+        <div class="col-md-12 retreats-form-container">
+          {% set form = '[wpforms id="240" title="false" description="false"]' %}
+          {{ form | shortcodes }}
+        </div>
+      </div>
 		</div>
 	</section>
 {% endblock %}
