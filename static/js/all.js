@@ -4,10 +4,16 @@ import $ from "jquery";
 import SmoothScroll from "smooth-scroll";
 import Slideout from "slideout";
 import Flickity from "flickity";
+import "featherlight";
 
 $(document).ready(() => {
   const header = document.querySelector(".site-header");
   const scroll = new SmoothScroll('a[href*="#"]');
+
+  $(".hero-video-button").click(function() {
+    const video = document.querySelector(".hero-video");
+    video.paused ? video.play() : video.pause();
+  });
 
   const heroSlider = document.querySelector("#hero-slider");
   if (heroSlider) {
@@ -49,7 +55,51 @@ $(document).ready(() => {
 
   // adminbarMargin();
   toggleSlideOutMenu(slideout);
+
+  businessWorkshopGallery();
 });
+
+/**
+ * Business Workshop gallery functions
+ */
+function businessWorkshopGallery() {
+  const coverBoxes = $(".services-cover-boxes-inner");
+
+  if (coverBoxes.length) {
+    coverBoxes.each(function() {
+      let activeElement = 0;
+      let dataActiveElement = 1;
+      if (
+        typeof $(this).data("active-element") !== "undefined" &&
+        $(this).data("active-element") !== false
+      ) {
+        dataActiveElement = parseFloat($(this).data("active-element"));
+        activeElement = dataActiveElement - 1;
+      }
+
+      const numberOfColumns = 3;
+
+      activeElement = dataActiveElement > numberOfColumns ? 0 : activeElement;
+
+      $(this)
+        .find(".services-cover-boxes-item-inner")
+        .eq(activeElement)
+        .addClass("active");
+      const cover_boxed = $(this);
+
+      $(this)
+        .find(".services-cover-boxes-item-inner")
+        .each(function() {
+          $(this).hover(function() {
+            $(cover_boxed)
+              .find(".services-cover-boxes-item-inner")
+              .removeClass("active");
+            $(this).addClass("active");
+          });
+        });
+    });
+  }
+}
 
 /**
  * Add margin-top to header if admin-bar is enabled;

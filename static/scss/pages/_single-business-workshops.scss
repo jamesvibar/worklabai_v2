@@ -1,0 +1,47 @@
+#single-business-workshops {
+  .info-content {
+    margin-bottom: 2em;
+  }
+
+  .info-details {
+    .tour-details-wrapper {
+      dl {
+        padding: 16px 0;
+        margin: 0;
+        border-bottom: 1px solid #ccc;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      dt {
+        font-weight: 500;
+      }
+
+      .dest-desc {
+        font-size: 0.9em;
+        line-height: 1.5em;
+      }
+      ul,
+      li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+    }
+
+    .contact-us-single-wrapper {
+      & > h2 {
+        background: _palette(blue);
+        text-transform: uppercase;
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        box-sizing: border-box;
+        color: _palette(white);
+        text-align: center;
+      }
+    }
+  }
+}

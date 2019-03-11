@@ -55,7 +55,7 @@ class StarterSite extends Timber\Site {
 	}
 
 	public function register_post_types() {
-
+		require "inc/post-types.php";
 	}
 
 	public function register_taxonomies() {
@@ -83,7 +83,8 @@ class StarterSite extends Timber\Site {
 		// Footer Education Drip
 		$args = array(
 			'post_type' => 'post',
-			'posts_per_page' => 3
+			'posts_per_page' => 3,
+			'cat' => 3
 		);
 		$context['education_posts'] = new Timber\PostQuery($args);
 		return $context;
@@ -177,17 +178,17 @@ if ( function_exists('acf_add_options_page') ) {
  * Pre get posts for custom WP Queries
  */
 
- // Education Center
- add_action('pre_get_posts', 'worklabai_category_education_personal_business');
- function worklabai_category_education_personal_business( $query ) {
-		if
-		( $query->is_main_query() && 
-			!is_admin() && 
-			( is_category('education-center') || 
-				is_category('personal') || 
-				is_category('business') 
-			) ) 
-		{
-			$query->set("posts_per_page", 3);
-		}
- }
+ // Education Center (Sets all posts_per_page to 3 for all categories within the site.)
+ add_action('pre_get_posts', function ( $query ) {
+	 if ( $query->is_main_query() && !is_admin() && $query->is_category() ) {
+		$query->set("posts_per_page", 3);
+	 }
+ });
+
+ // Gallery
+ add_action('pre_get_posts', function( $query ) {
+	if
+	( $query->is_main_query() && !is_admin() && $query->is_post_type_archive('gallery') ) {
+		$query->set("posts_per_page", 3);
+	}
+ });

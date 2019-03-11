@@ -1,0 +1,71 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+  {% include "headers/header-video.twig" with { source: post.video_banner } %}
+{% endblock %}
+
+{% block content %}
+  <section id="single-business-workshops" class="section">
+    <div class="container">
+      <div class="row info-content">
+        <div class="col-lg-12 mx-auto">
+          <h2 class="single-service-title">{{ post.title}}</h2>
+          <div class="single-service-content">
+            {{ post.description | wpautop }}
+          </div>
+        </div>
+      </div>
+      <div class="row info-details">
+        <div class="col-lg-6 justify-content-center align-self-center">
+          <div class="tour-details-wrapper pr-sm-4">
+            <dl class="row">
+              <dt class="col-md-5">Destination</dt>
+              <div class="col-md-7 dest-desc">{{ post.destination}}</div>
+            </dl>
+            <dl class="row">
+              <dt class="col-md-5">Departure</dt>
+              <div class="col-md-7 dest-desc">{{ post.departure}}</div>
+            </dl>
+            <dl class="row">
+              <dt class="col-md-5">Duration</dt>
+              <div class="col-md-7 dest-desc">{{ post.duration}}</div>
+            </dl>
+            <dl class="row">
+              <dt class="col-md-5">Included</dt>
+              <div class="col-md-7 dest-desc">
+                <ul>
+                  {# Get all ACF Fields acf.included.choices #}
+                  {# Check if those fields are checked post.included #}
+                  {% for item in acf.included.choices %}
+                  {% if item in post.included %}
+                  <li><i class="fas fa-check" style="color: green; margin-right: 5px; font-size: .8em"></i>{{ item }}</li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </dl>
+            <dl class="row">
+              <dt class="col-md-5">Not Included</dt>
+              <div class="col-md-7 dest-desc">
+              <ul>
+                {% for item in acf.included.choices %}
+                {% if item not in post.included %}
+                <li><i class="fas fa-times" style="color: red; margin-right: 5px;"></i>{{ item }}</li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="col-lg-6">  
+          <div class="contact-us-single-wrapper">
+            <h2>Contact us for more information</h2>
+            {{ '[wpforms id="386" title="false" description="false"]' | shortcodes }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

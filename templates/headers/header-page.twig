@@ -4,7 +4,11 @@
       <div class="col-lg-12 mt-auto">
         <div class="hero-page__content">
           <h2 class="hero-page__title mt-auto">
+            {% if post.title %}
             {{ post.title }}
+            {% else %}
+            {{ post }}
+            {% endif %}
           </h2>
         </div>
       </div>

@@ -1,0 +1,17 @@
+#hero.hero-video-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: _palette(black);
+  position: relative;
+
+  video.hero-video {
+    width: 100%;
+  }
+
+  .hero-video-button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+  }
+}

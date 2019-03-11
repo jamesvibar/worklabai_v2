@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+  {% include "headers/header-single.twig" %}
+{% endblock %}
+
+{% block content %}
+  <section id="single-gallery" class="section">
+    <div class="container">
+      <div class="row">
+        {% for image in post.meta('gallery') %}
+        <div class="col-md-4 col-lg-4" style="margin-bottom: 32px;">
+          <div class="gallery-item-single">
+            <img data-featherlight="{{ image.url }}" src="{{ image.url | resize(400) }}" alt="{{ image.title }}">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

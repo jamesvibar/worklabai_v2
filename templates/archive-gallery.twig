@@ -1,0 +1,37 @@
+{% extends "base.twig" %} 
+
+{% block hero %}
+{% include "/headers/header-page.twig" with { background_image: background_image, post: post } %}
+{% endblock %}
+
+{% block content %}
+  <section id="gallery-wrapper" class="section">
+    <div class="container">
+      <div class="row" style="margin-bottom: 2em;">
+        {% if posts %}
+        {% for post in posts %}
+        <div class="col-md-4 col-lg-4">
+          <a href="{{ post.link }}" class="gallery-item">
+            {% set firstImage = post.meta('gallery') | first %}
+            <img src="{{ firstImage.url }}" alt="{{ post.title }}">
+            <h2 class="gallery-item__title">{{ post.title }}</h2>
+          </a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12 text-center">
+          <h2>No posts found.</h2>
+        </div>
+        {% endif %}
+
+
+      </div>
+      <div class="row">
+        <div class="col-12">
+          {# Pagination #}
+          {% include "partials/pagination.twig" with { pagination: posts.pagination } %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

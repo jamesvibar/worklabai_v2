@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+{% include "/headers/header-page.twig" with { background_image: background_image, post: post } %}
+{% endblock %}
+
+{% block content %}
+  <section id="business-workshops" class="section services-grip-container">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-lg-12">
+          <div class="services-cover-boxes-holder">
+            
+            <div class="services-cover-boxes-inner group" data-active-element="1">
+              {% if posts %}
+              {% for post in posts %}            
+              <div class="services-cover-boxes-item-inner active">
+                <div class="services-cover-box-item group ">
+                  <div class="services-cover-box-item-image-holder">
+                    <a href="{{ post.link }}">
+                      <img src="{{ Image(post.image).src }}" class="mx-auto d-block" >
+                    </a>
+                  </div>
+
+                  <div class="services-cover-box-item-content-holder">
+                    <div class="services-cover-box-item-title">{{ post.title }}</div>
+                    <div class="services-cover-box-item-date">{{ post.date | date("D, M. j, Y") }}</div>
+                    <div class="services-cover-box-item-excerpt">
+                    {{ post.excerpt | slice(0,80) ~ '...' }}</div>
+                    <a href="{{ post.link }}">Learn More »</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              {% else %}
+              <h1>There are no posts here.</h1>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endblock %}

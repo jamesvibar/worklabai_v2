@@ -1,0 +1,28 @@
+#gallery-wrapper {
+  .gallery-item {
+    position: relative;
+    display: block;
+    background: _palette(black);
+
+    & > img {
+      opacity: 0.6;
+      width: 100%;
+      transition: opacity 200ms ease-out;
+    }
+
+    .gallery-item__title {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      font-weight: 400;
+      color: _palette(white);
+      margin: 0;
+    }
+
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}

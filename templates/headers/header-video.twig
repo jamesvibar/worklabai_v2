@@ -1,0 +1,14 @@
+{% if source %}
+<header id="hero" class="hero-video-container">
+    <video class="hero-video" preload="auto">
+      <source src="{% if source %}{{ source }}{% endif %}">
+    </video>
+    <button type="button" class="btn btn-black-trans hero-video-button">
+    <i class="fas fa-play"></i> Video Preview
+    </button>
+</header>
+{% else %}
+<header id="hero" class="hero-video-container">
+    Please put a video banner
+</header>
+{% endif %}

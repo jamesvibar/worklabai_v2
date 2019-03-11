@@ -26,6 +26,7 @@
 @import "./layout/hero-fullpage";
 @import "./layout/hero-page";
 @import "./layout/hero-slider";
+@import "./layout/hero-video";
 @import "./layout/block-education-drip";
 // @import "./layout/email-to-a-friend";
 
@@ -36,6 +37,7 @@
 @import "./components/hamburger";
 @import "./components/contact-form";
 @import "./components/retreats-form";
+@import "./components/business-workshops-form";
 @import "./components/pagination";
 @import "./components/related-blogs";
 
@@ -45,7 +47,13 @@
 @import "./pages/about-us";
 @import "./pages/notfoundpage";
 @import "./pages/category-education-center";
+@import "./pages/archive-gallery";
+@import "./pages/archive-business-workshops";
 @import "./pages/single-post";
+@import "./pages/single-gallery";
+@import "./pages/single-business-workshops";
 
+// Vendors
 @import "./vendors/slideout";
 @import "./vendors/flickity";
+@import "./vendors/featherlight/featherlight.css";
